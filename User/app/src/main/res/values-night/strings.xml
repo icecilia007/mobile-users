@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title">User list</string>
+    <string name="firstName">Izabela</string>
+    <string name="lastName">Barbosa</string>
+    <string name="titleName">Miss</string>
+    <string name="state">Minas Gerais</string>
+    <string name="country">Brasil</string>
+    <string name="info">Contatos</string>
+    <string name="email">izabelacecilia275@gmail.com</string>
+    <string name="number">(031) 7362–6658</string>
+</resources>
