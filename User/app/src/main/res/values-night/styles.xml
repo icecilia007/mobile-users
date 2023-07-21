@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CustomComponentItem">
+        <item name="android:background">@drawable/rounded_background</item>
+    </style>
+    <style name="CustomEditTextStyle" parent="Widget.AppCompat.EditText">
+        <!-- Remove a linha de foco (underline) -->
+        <item name="android:background">@null</item>
+        <!-- Torna o EditText não clicável (não editável) -->
+        <item name="android:clickable">false</item>
+        <item name="android:focusable">false</item>
+        <item name="android:focusableInTouchMode">false</item>
+    </style>
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:tint="?attr/colorSecondaryVariant"
+        android:bottom="0dp"
+        android:left="-80dp"
+        android:right="-80dp"
+        android:top="-80dp">
+        <shape android:shape="oval" android:tint="?attr/colorSecondaryVariant">
+            <solid android:color="?attr/colorSecondaryVariant">
+            </solid>
+        </shape>
+    </item>
+</layer-list>
