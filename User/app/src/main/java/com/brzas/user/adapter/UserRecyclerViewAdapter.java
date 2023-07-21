@@ -1,11 +1,9 @@
 package com.brzas.user.adapter;
 
-import android.view.ViewGroup;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,12 +13,13 @@ import com.brzas.user.models.User;
 
 import java.util.ArrayList;
 import java.util.List;
-public class UserRecyclerViewAdapter extends RecyclerView.Adapter<MyViewHolder>{
-    private final UserRecyclerViewInterface userRecyclerViewInterface;
-    private Context context;
-    private List<User> userList= new ArrayList<>();
 
-    public UserRecyclerViewAdapter(Context context,UserRecyclerViewInterface userRecyclerViewInterface) {
+public class UserRecyclerViewAdapter extends RecyclerView.Adapter<MyViewHolder> {
+    private final UserRecyclerViewInterface userRecyclerViewInterface;
+    private final Context context;
+    private final List<User> userList = new ArrayList<>();
+
+    public UserRecyclerViewAdapter(Context context, UserRecyclerViewInterface userRecyclerViewInterface) {
         this.context = context;
         this.userRecyclerViewInterface = userRecyclerViewInterface;
     }
@@ -43,6 +42,7 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<MyViewHolder>{
     public int getItemCount() {
         return userList.size();
     }
+
     // Método para adicionar um único usuário ao RecyclerView
     public void adicionarUsuario(User user) {
         userList.add(user);

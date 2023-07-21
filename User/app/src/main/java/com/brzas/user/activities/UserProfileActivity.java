@@ -17,7 +17,6 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
 
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -69,6 +68,7 @@ public class UserProfileActivity extends AppCompatActivity {
             }
         });
     }
+
     private void togglePasswordVisibility() {
         if (passwordVisible) {
             textEditPassword.setTransformationMethod(null);
@@ -80,6 +80,7 @@ public class UserProfileActivity extends AppCompatActivity {
         }
         textEditPassword.setSelection(textEditPassword.getText().length());
     }
+
     private void layoutView() {
         pictureImageView = findViewById(R.id.picture);
         firstNameTextView = findViewById(R.id.firstName);
@@ -113,7 +114,7 @@ public class UserProfileActivity extends AppCompatActivity {
 
     private void setUserProfile(User user) {
 
-        String imageUrl=user.getPicture().getLarge();
+        String imageUrl = user.getPicture().getLarge();
 
         Glide.with(UserProfileActivity.this)
                 .load(imageUrl)
@@ -122,9 +123,9 @@ public class UserProfileActivity extends AppCompatActivity {
 
         if (user.getGender().equals("male")) {
             genderIconImageView.setImageResource(R.drawable.gender_male);
-        } else if(user.getGender().equals("female")){
+        } else if (user.getGender().equals("female")) {
             genderIconImageView.setImageResource(R.drawable.gender_female);
-        }else{
+        } else {
             genderIconImageView.setImageResource(R.drawable.gender_non_binary);
         }
 
@@ -160,6 +161,7 @@ public class UserProfileActivity extends AppCompatActivity {
         dateRegisteredTextView.setText(convertDateFormat(user.getRegistered().getDate()));
         yearRegisteredTextView.setText(String.valueOf(user.getRegistered().getAge()));
     }
+
     private String convertDateFormat(String inputDateStr) {
         String outputDateStr = "";
         SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");

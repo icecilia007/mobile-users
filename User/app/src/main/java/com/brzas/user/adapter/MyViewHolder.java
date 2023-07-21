@@ -11,7 +11,7 @@ import com.brzas.user.models.Location;
 import com.brzas.user.models.Name;
 import com.brzas.user.models.User;
 
-public class MyViewHolder extends RecyclerView.ViewHolder{
+public class MyViewHolder extends RecyclerView.ViewHolder {
 
     TextView titleName;
     TextView firstName;
@@ -20,6 +20,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder{
     TextView state;
     TextView email;
     TextView phone;
+
     public MyViewHolder(@NonNull View itemView, UserRecyclerViewInterface userRecyclerViewInterface) {
         super(itemView);
         titleName = itemView.findViewById(R.id.titleName);
@@ -33,15 +34,16 @@ public class MyViewHolder extends RecyclerView.ViewHolder{
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(userRecyclerViewInterface!=null){
+                if (userRecyclerViewInterface != null) {
                     int pos = getAdapterPosition();
-                    if(pos!= RecyclerView.NO_POSITION){
+                    if (pos != RecyclerView.NO_POSITION) {
                         userRecyclerViewInterface.onItemClick(pos);
                     }
                 }
             }
         });
     }
+
     void bind(User user) {
         Name name = user.getName();
         Location location = user.getLocation();
