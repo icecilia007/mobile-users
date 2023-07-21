@@ -2,10 +2,10 @@
 Projeto tem como objetivo simular um perfil de administrador, onde o mesmo faz consultas da quantidade de perfis de deseja visualizar e consegue ter um paronama dos dados principais e não sensíveis, quando o mesmo clica no perfil ele tem acesso a uma área com dados mais sensiveis(não todos) para uma visualização do usuário.
 
 ## Capturas de Tela
-![Tela Principal](TelaPrincipal.jpeg)
-![Tela Principal Barra de Pesquisa](TelaPrincipalPesquisa.jpeg)
-![Tela do Usuário com senha oculta](TelaUsuario.jpeg)
-![Tela do Usuário com senha visualizável](TelaUsuarioSenha.jpeg)
+<img src="TelaPrincipal.jpeg" width="200" height="400">
+<img src="TelaPrincipalPesquisa.jpeg" width="200" height="400">
+<img src="TelaUsuario.jpeg" width="200" height="400">
+<img src="TelaUsuarioSenha.jpeg" width="200" height="400">
 
 ## Tecnologias Utilizadas
 * Glide: Biblioteca utilizada para carregar imagens.
