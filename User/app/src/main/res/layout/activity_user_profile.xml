@@ -126,38 +126,16 @@
             app:barrierDirection="bottom"
             app:constraint_referenced_ids="firstName,lastName"/>
 
-        <TextView
-            android:id="@+id/userName"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:text="@string/userName"
-            android:textStyle="italic"
-            android:textSize="@dimen/text_size_large"
-            android:maxLines="2"
-            android:ellipsize="marquee"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintBottom_toTopOf="@id/barrierUserName"
-            app:layout_constraintStart_toStartOf="@id/guidelineStart"
-            app:layout_constraintRight_toLeftOf="@id/gender_icon"
-            app:layout_constraintTop_toBottomOf="@id/barrierName">
 
-        </TextView>
         <ImageView
             android:id="@+id/gender_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/gender_female"
-            android:layout_marginStart="@dimen/text_margin_small"
-            app:layout_constraintLeft_toRightOf="@id/userName"
             app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
-            app:layout_constraintTop_toBottomOf="@id/barrierName">
+            app:layout_constraintLeft_toRightOf="@id/year_private_txt"
+            app:layout_constraintTop_toBottomOf="@id/date">
         </ImageView>
-        <androidx.constraintlayout.widget.Barrier
-            android:id="@+id/barrierUserName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:barrierDirection="bottom"
-            app:constraint_referenced_ids="userName,gender_icon"/>
 
         <TextView
             android:id="@+id/date_txt"
@@ -168,7 +146,7 @@
             app:layout_constraintBottom_toTopOf="@+id/idade"
             app:layout_constraintRight_toLeftOf="@id/date"
             app:layout_constraintStart_toEndOf="@id/guidelineStart"
-            app:layout_constraintTop_toBottomOf="@id/barrierUserName">
+            app:layout_constraintTop_toBottomOf="@id/barrierName">
 
         </TextView>
 
@@ -182,7 +160,7 @@
             app:layout_constraintBottom_toTopOf="@+id/idade"
             app:layout_constraintRight_toLeftOf="@id/picture"
             app:layout_constraintStart_toEndOf="@id/date_txt"
-            app:layout_constraintTop_toBottomOf="@id/barrierUserName">
+            app:layout_constraintTop_toBottomOf="@id/barrierName">
         </TextView>
         <TextView
             android:id="@+id/idade_txt"
@@ -375,6 +353,7 @@
             android:singleLine="false"
             android:text="@string/email"
             android:textSize="@dimen/text_size_medium"
+            app:layout_constraintBottom_toTopOf="@+id/cell"
             app:layout_constraintRight_toRightOf="@id/guidelineEnd"
             app:layout_constraintStart_toEndOf="@id/email_icon"
             app:layout_constraintTop_toBottomOf="@id/info_txt">
@@ -421,7 +400,7 @@
             android:layout_marginStart="@dimen/text_margin_small"
             android:text="@string/number_phone"
             android:textSize="@dimen/text_size_medium"
-            app:layout_constraintBottom_toTopOf="@+id/registered_txt"
+            app:layout_constraintBottom_toTopOf="@+id/barrierPhone"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toEndOf="@id/phone_icon"
             app:layout_constraintTop_toBottomOf="@id/cell_icon">
@@ -445,15 +424,55 @@
             app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
             android:textStyle="bold"
             android:textSize="@dimen/text_size_large"
+            app:layout_constraintBottom_toTopOf="@id/userName">
+        </TextView>
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/userName"
+            android:textSize="@dimen/text_size_medium"
+            app:layout_constraintTop_toBottomOf="@id/registered_txt"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintRight_toLeftOf="@id/userPassword"
             app:layout_constraintBottom_toTopOf="@id/date_registered_txt">
         </TextView>
+
+        <EditText
+            android:id="@+id/userPassword"
+            style="@style/CustomEditTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/text_margin_small"
+            android:inputType="textPassword"
+            android:text="@string/userPassword"
+            android:textSize="@dimen/text_size_medium"
+            app:layout_constraintBottom_toBottomOf="@+id/userName"
+            app:layout_constraintRight_toRightOf="@id/guidelineEnd"
+            app:layout_constraintStart_toEndOf="@id/userName"
+            app:layout_constraintTop_toBottomOf="@id/registered_txt"
+            app:layout_constraintVertical_bias="1.0">
+
+        </EditText>
+
+        <ImageView
+            android:id="@+id/btnTogglePasswordVisibility"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/text_margin_small"
+            android:src="@drawable/eye_off"
+            app:layout_constraintBottom_toBottomOf="@+id/userPassword"
+            app:layout_constraintRight_toLeftOf="@+id/guidelineEnd"
+            app:layout_constraintStart_toEndOf="@+id/userPassword"
+            app:layout_constraintTop_toTopOf="@+id/userPassword">
+        </ImageView>
         <TextView
             android:id="@+id/date_registered_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/data_registered_txt"
             android:textSize="@dimen/text_size_medium"
-            app:layout_constraintTop_toBottomOf="@id/registered_txt"
+            app:layout_constraintTop_toBottomOf="@id/userName"
             app:layout_constraintStart_toEndOf="@id/guidelineStart"
             app:layout_constraintRight_toLeftOf="@id/date_registered"
             app:layout_constraintBottom_toTopOf="@id/year_registered">
@@ -469,7 +488,7 @@
             app:layout_constraintRight_toRightOf="@id/guidelineEnd"
             app:layout_constraintBottom_toTopOf="@id/year_registered"
             app:layout_constraintStart_toEndOf="@id/date_registered_txt"
-            app:layout_constraintTop_toBottomOf="@id/registered_txt"
+            app:layout_constraintTop_toBottomOf="@id/userName"
             app:layout_constraintVertical_bias="1.0">
         </TextView>
 
@@ -479,6 +498,7 @@
             android:layout_height="wrap_content"
             android:text="@string/year_registered_txt"
             android:textSize="@dimen/text_size_medium"
+            app:layout_constraintBottom_toBottomOf="@id/guidelineBottom"
             app:layout_constraintRight_toLeftOf="@id/year_registered"
             app:layout_constraintStart_toEndOf="@id/guidelineStart"
             app:layout_constraintTop_toBottomOf="@id/date_registered_txt">
@@ -491,6 +511,7 @@
             android:layout_marginStart="@dimen/text_margin_small"
             android:text="@string/year_registered"
             android:textSize="@dimen/text_size_medium"
+            app:layout_constraintBottom_toBottomOf="@id/guidelineBottom"
             app:layout_constraintRight_toLeftOf="@+id/year_txt"
             app:layout_constraintStart_toEndOf="@id/year_registered_txt"
             app:layout_constraintTop_toBottomOf="@id/date_registered_txt">
@@ -504,6 +525,7 @@
             android:layout_marginStart="@dimen/text_margin_small"
             android:text="@string/year_txt"
             android:textSize="@dimen/text_size_medium"
+            app:layout_constraintBottom_toBottomOf="@id/guidelineBottom"
             app:layout_constraintRight_toRightOf="@id/guidelineEnd"
             app:layout_constraintStart_toEndOf="@id/year_registered"
             app:layout_constraintTop_toBottomOf="@id/date_registered_txt">

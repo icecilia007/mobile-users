@@ -2,13 +2,14 @@ package com.brzas.user.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.text.method.PasswordTransformationMethod;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import com.brzas.user.R;
 import com.brzas.user.models.User;
@@ -45,6 +46,10 @@ public class UserProfileActivity extends AppCompatActivity {
     private TextView dateRegisteredTextView;
     private TextView yearRegisteredTextView;
 
+    private boolean passwordVisible = false;
+    private EditText textEditPassword;
+    private ImageView btnTogglePasswordVisibility;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,8 +60,26 @@ public class UserProfileActivity extends AppCompatActivity {
         }
         layoutView();
         setUserProfile(user);
-    }
 
+        btnTogglePasswordVisibility.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                passwordVisible = !passwordVisible;
+                togglePasswordVisibility();
+            }
+        });
+    }
+    private void togglePasswordVisibility() {
+        if (passwordVisible) {
+            textEditPassword.setTransformationMethod(null);
+            btnTogglePasswordVisibility.setImageResource(R.drawable.eye);
+        } else {
+            // Ocultar a senha com bolinhas
+            textEditPassword.setTransformationMethod(new PasswordTransformationMethod());
+            btnTogglePasswordVisibility.setImageResource(R.drawable.eye_off);
+        }
+        textEditPassword.setSelection(textEditPassword.getText().length());
+    }
     private void layoutView() {
         pictureImageView = findViewById(R.id.picture);
         firstNameTextView = findViewById(R.id.firstName);
@@ -77,6 +100,10 @@ public class UserProfileActivity extends AppCompatActivity {
         phoneTextView = findViewById(R.id.phone);
         dateRegisteredTextView = findViewById(R.id.date_registered);
         yearRegisteredTextView = findViewById(R.id.year_registered);
+
+        textEditPassword = findViewById(R.id.userPassword);
+        btnTogglePasswordVisibility = findViewById(R.id.btnTogglePasswordVisibility);
+
     }
 
     @Override
@@ -110,6 +137,7 @@ public class UserProfileActivity extends AppCompatActivity {
 
         // Preencha as informações do nome de usuário
         userNameTextView.setText(user.getLogin().getUsername());
+        textEditPassword.setText(user.getLogin().getPassword());
 
         // Preencha as informações de data de nascimento e idade
         dateTextView.setText(convertDateFormat(user.getDob().getDate()));

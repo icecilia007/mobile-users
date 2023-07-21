@@ -30,4 +30,5 @@
     <string name="dados">Dados Pessoais</string>
     <string name="query">Tamanho da consulta</string>
     <string name="year_txt">anos</string>
+    <string name="userPassword">lindasenha</string>
 </resources>
