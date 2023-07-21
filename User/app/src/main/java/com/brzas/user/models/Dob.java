@@ -1,6 +1,8 @@
 package com.brzas.user.models;
 
-public class Dob {
+import java.io.Serializable;
+
+public class Dob implements Serializable {
     private String date;
     private int age;
 

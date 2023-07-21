@@ -1,6 +1,8 @@
 package com.brzas.user.models;
 
-public class ID {
+import java.io.Serializable;
+
+public class ID implements Serializable {
     private String name;
     private String value;
 

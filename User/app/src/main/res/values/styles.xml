@@ -4,4 +4,11 @@
     <style name="CustomComponentItem">
         <item name="android:background">@drawable/rounded_background</item>
     </style>
+
+    <style name="CustomBackgroundToolBar">
+        <item name="android:background">@drawable/background_style_reverse</item>
+        <item name="android:backgroundTint">?attr/colorSecondaryVariant</item>
+        <item name="color">?attr/colorSecondaryVariant</item>
+        <item name="tint">?attr/colorSecondaryVariant</item>
+    </style>
 </resources>

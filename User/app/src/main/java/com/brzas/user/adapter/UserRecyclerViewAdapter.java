@@ -16,24 +16,27 @@ import com.brzas.user.models.User;
 import java.util.ArrayList;
 import java.util.List;
 public class UserRecyclerViewAdapter extends RecyclerView.Adapter<MyViewHolder>{
+    private final UserRecyclerViewInterface userRecyclerViewInterface;
     private Context context;
     private List<User> userList= new ArrayList<>();
 
-    public UserRecyclerViewAdapter(Context context) {
+    public UserRecyclerViewAdapter(Context context,UserRecyclerViewInterface userRecyclerViewInterface) {
         this.context = context;
+        this.userRecyclerViewInterface = userRecyclerViewInterface;
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.user_content, parent, false);
-        return new MyViewHolder(view);
+        return new MyViewHolder(view, userRecyclerViewInterface);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         User user = userList.get(position);
         holder.bind(user);
+
     }
 
     @Override

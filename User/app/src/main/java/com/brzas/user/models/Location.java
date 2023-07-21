@@ -1,6 +1,8 @@
 package com.brzas.user.models;
 
-public class Location {
+import java.io.Serializable;
+
+public class Location implements Serializable {
     private Street street;
     private String city;
     private String state;

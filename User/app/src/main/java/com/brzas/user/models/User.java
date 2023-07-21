@@ -1,6 +1,8 @@
 package com.brzas.user.models;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private String gender;
     private Name name;
     private Location location;

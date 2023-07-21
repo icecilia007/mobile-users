@@ -4,4 +4,6 @@
     <style name="CustomComponentItem">
         <item name="android:background">@drawable/rounded_background</item>
     </style>
+
+    <style name="CustomBackgroundToolBar"></style>
 </resources>

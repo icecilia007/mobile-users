@@ -20,7 +20,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder{
     TextView state;
     TextView email;
     TextView phone;
-    public MyViewHolder(@NonNull View itemView) {
+    public MyViewHolder(@NonNull View itemView, UserRecyclerViewInterface userRecyclerViewInterface) {
         super(itemView);
         titleName = itemView.findViewById(R.id.titleName);
         firstName = itemView.findViewById(R.id.firstName);
@@ -29,6 +29,18 @@ public class MyViewHolder extends RecyclerView.ViewHolder{
         state = itemView.findViewById(R.id.state);
         email = itemView.findViewById(R.id.email);
         phone = itemView.findViewById(R.id.number);
+
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(userRecyclerViewInterface!=null){
+                    int pos = getAdapterPosition();
+                    if(pos!= RecyclerView.NO_POSITION){
+                        userRecyclerViewInterface.onItemClick(pos);
+                    }
+                }
+            }
+        });
     }
     void bind(User user) {
         Name name = user.getName();

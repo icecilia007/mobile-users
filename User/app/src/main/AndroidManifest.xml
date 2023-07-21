@@ -26,6 +26,11 @@
             android:exported="false"
             android:theme="@style/Base.Theme.User">
         </activity>
+        <activity
+            android:name=".activities.UserProfileActivity"
+            android:exported="false"
+            android:theme="@style/Base.Theme.User">
+        </activity>
     </application>
 
 </manifest>

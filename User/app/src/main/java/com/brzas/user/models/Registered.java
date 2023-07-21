@@ -1,6 +1,8 @@
 package com.brzas.user.models;
 
-public class Registered {
+import java.io.Serializable;
+
+public class Registered implements Serializable {
     private String date;
     private int age;
 
