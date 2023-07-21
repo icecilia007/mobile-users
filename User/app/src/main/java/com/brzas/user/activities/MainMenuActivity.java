@@ -49,9 +49,9 @@ public class MainMenuActivity extends AppCompatActivity implements UserRecyclerV
     private SearchView searchView;
 
     private List<User> userList=  new ArrayList<>();
-    final int maxRetries = 3;
-    final int initialTimeoutMs = 5000; // 5 segundos
-    final float backoffMultiplier = 1.0f;
+    private final int maxRetries = 3;
+    private final int initialTimeoutMs = 5000; // 5 segundos
+    private final float backoffMultiplier = 1.0f;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

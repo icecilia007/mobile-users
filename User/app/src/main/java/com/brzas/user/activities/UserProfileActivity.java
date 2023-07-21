@@ -55,7 +55,6 @@ public class UserProfileActivity extends AppCompatActivity {
         }
         layoutView();
         setUserProfile(user);
-
     }
 
     private void layoutView() {
@@ -83,30 +82,17 @@ public class UserProfileActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        pictureImageView = findViewById(R.id.picture);
+    }
+
+    private void setUserProfile(User user) {
+
         String imageUrl=user.getPicture().getLarge();
-        Log.d(TAG,imageUrl);
+
         Glide.with(UserProfileActivity.this)
                 .load(imageUrl)
                 .apply(RequestOptions.bitmapTransform(new CircleCrop()))
                 .into(pictureImageView);
 
-
-    }
-
-    private void setUserProfile(User user) {
-
-
-//        GlideApp.with(UserProfileActivity.this)
-//                .load("https://lh6.ggpht.com/9SZhHdv4URtBzRmXpnWxZcYhkgTQurFuuQ8OR7WZ3R7fyTmha77dYkVvcuqMu3DLvMQ=w300")
-//                .apply(RequestOptions.bitmapTransform(new CircleCrop())
-//                        .diskCacheStrategy(DiskCacheStrategy.ALL))
-//                .into(pictureImageView);
-//        Glide.with(UserProfileActivity.this)
-//                .load("https://lh6.ggpht.com/9SZhHdv4URtBzRmXpnWxZcYhkgTQurFuuQ8OR7WZ3R7fyTmha77dYkVvcuqMu3DLvMQ=w300")
-//                .apply(RequestOptions.bitmapTransform(new CircleCrop()))
-//                .into(pictureImageView);
-        // Defina a imagem do gênero com base no sexo do usuário
         if (user.getGender().equals("male")) {
             genderIconImageView.setImageResource(R.drawable.gender_male);
         } else if(user.getGender().equals("female")){
@@ -159,7 +145,6 @@ public class UserProfileActivity extends AppCompatActivity {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
         return outputDateStr;
     }
 }
